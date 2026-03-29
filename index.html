@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,700&family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="shortcut icon" href="favicon.svg">
 
   <style>
     /* ═══════════════════════════════════════════
@@ -75,18 +77,12 @@
     /* Logo */
     .logo { display: flex; align-items: center; gap: 1rem; }
     .logo-mark {
-      display: flex; align-items: center; gap: 5px;
+      display: flex; align-items: center;
       position: relative;
+      transition: transform .35s var(--ease);
     }
-    .logo-bar {
-      width: 4px; height: 28px; border-radius: 2px;
-      background: var(--gold);
-      display: block;
-      transform-origin: bottom;
-      transition: height .3s var(--ease);
-    }
-    .logo:hover .logo-bar:nth-child(1) { height: 34px; }
-    .logo:hover .logo-bar:nth-child(2) { height: 22px; }
+    .logo:hover .logo-mark { transform: scale(1.08); }
+    .logo-mark svg { display: block; }
     .logo-type { display: flex; flex-direction: column; line-height: 1.1; gap: 2px; }
     .logo-name {
       font-family: 'Playfair Display', serif;
@@ -144,11 +140,13 @@
     .hero-bg {
       position: absolute; inset: 0; z-index: 0;
       background: url('images/56b404ed-e561-4000-93cb-2a7764f811a6.jpeg') center/cover no-repeat;
-      transform: scale(1.06);
-      animation: slow-zoom 18s ease-out forwards;
+      animation: ken-burns 16s ease-in-out infinite alternate;
+      will-change: transform;
     }
-    @keyframes slow-zoom {
-      to { transform: scale(1); }
+    @keyframes ken-burns {
+      0%   { transform: scale(1.12) translateX(-3%) translateY(0%); }
+      50%  { transform: scale(1.08) translateX(0%)  translateY(-1%); }
+      100% { transform: scale(1.12) translateX(3%)  translateY(0%); }
     }
     /* Multi-layer overlay */
     .hero-bg::after {
@@ -780,8 +778,18 @@
 <nav class="nav" id="nav">
   <a href="#" class="logo">
     <div class="logo-mark">
-      <span class="logo-bar"></span>
-      <span class="logo-bar" style="height:22px; margin-top:3px;"></span>
+      <svg width="24" height="30" viewBox="0 0 24 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Fork tines -->
+        <path d="M3 2v7M6 2v7M9 2v7" stroke="#C4956A" stroke-width="1.5" stroke-linecap="round"/>
+        <!-- Fork arch -->
+        <path d="M3 9c0 2.2 6 2.2 6 0" stroke="#C4956A" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <!-- Fork handle -->
+        <line x1="6" y1="11.2" x2="6" y2="28" stroke="#C4956A" stroke-width="1.5" stroke-linecap="round"/>
+        <!-- Knife straight edge -->
+        <line x1="18" y1="2" x2="18" y2="28" stroke="#C4956A" stroke-width="1.5" stroke-linecap="round"/>
+        <!-- Knife blade curve -->
+        <path d="M18 2 C21.5 4.5 21.5 9 18 11" stroke="#C4956A" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      </svg>
     </div>
     <div class="logo-type">
       <span class="logo-name">PAUSA</span>
@@ -1330,8 +1338,13 @@
 <footer>
   <div class="footer-logo logo">
     <div class="logo-mark">
-      <span class="logo-bar" style="height:22px;"></span>
-      <span class="logo-bar" style="height:16px; margin-top:3px;"></span>
+      <svg width="20" height="25" viewBox="0 0 24 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 2v7M6 2v7M9 2v7" stroke="#C4956A" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M3 9c0 2.2 6 2.2 6 0" stroke="#C4956A" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <line x1="6" y1="11.2" x2="6" y2="28" stroke="#C4956A" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="18" y1="2" x2="18" y2="28" stroke="#C4956A" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M18 2 C21.5 4.5 21.5 9 18 11" stroke="#C4956A" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      </svg>
     </div>
     <div class="logo-type">
       <span class="logo-name" style="font-size:.95rem;">PAUSA</span>
